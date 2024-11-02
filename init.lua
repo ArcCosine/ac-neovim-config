@@ -3,7 +3,7 @@ require("option/option")
 require("option/cd")
 
 -- dark powerd vim settings.
-require("darkpowerd/dpp_setting")
+require("darkpowerd/dpp")
 require("darkpowerd/ddu")
 
 -- keymaps

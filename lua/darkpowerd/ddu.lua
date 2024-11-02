@@ -17,11 +17,16 @@ vim.fn['ddu#custom#patch_global']({
       prompt = "> ",
       startAutoAction = true,
       autoAction = {
-          name = "preview"
+          delay = 0,
+          name = "preview",
       },
       split = "floating",
       startFilter = true,
       updateTime = 0,
+      winHeight = '&lines - 8',
+      winWidth = '&columns / 2 - 2',
+      winRow = 1,
+      winCol = 1,
     },
   },
   sources = {
@@ -71,7 +76,7 @@ vim.api.nvim_create_autocmd("FileType", {
       }) do 
         vim.api.nvim_buf_set_keymap(0, "n", k,
           "<Cmd>call ddu#ui#do_action('" .. v .. "')<CR>",
-          { noremap = true, silent = true }
+          { noremap = true, silent = true, }
         )
       end
   end

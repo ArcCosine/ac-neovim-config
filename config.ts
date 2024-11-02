@@ -34,6 +34,7 @@ export class Config extends BaseConfig {
         const [context, options] = await args.contextBuilder.get(args.denops);
         const dotfilesDir = "~/.config/nvim/toml/";
 
+        // use toml
         const tomls: Toml[] = [];
         const toml = (await args.dpp.extAction(
             args.denops,
@@ -42,7 +43,8 @@ export class Config extends BaseConfig {
             "toml",
             "load",
             {
-                path: `${dotfilesDir}/dein.toml`,
+                path: await fn.expand(args.denops, dotfilesDir + "/dein.toml"),
+                //path: `${dotfilesDir}/dein.toml`,
                 options: {
                     lazy: false,
                 },
@@ -59,8 +61,8 @@ export class Config extends BaseConfig {
             "toml",
             "load",
             {
-                //path: await fn.expand(args.denops, dotfilesDir + "dein_lazy.toml"),
-                path: `${dotfilesDir}/dein_lazy.toml`,
+                path: await fn.expand(args.denops, dotfilesDir + "/dein_lazy.toml"),
+                //path: `${dotfilesDir}/dein_lazy.toml`,
                 options: {
                     lazy: true,
                 },
@@ -94,8 +96,37 @@ export class Config extends BaseConfig {
             }
         });
 
-        // console.log(recordPlugins);
+        // use local
+ const localPlugins = await args.dpp.extAction(
+      args.denops,
+      context,
+      options,
+      "local",
+      "local",
+      {
+        directory: "~/work",
+        options: {
+          frozen: true,
+          merged: false,
+        },
+      },
+    ) as Plugin[] | undefined;
 
+    if (localPlugins) {
+      // Merge localPlugins
+      for (const plugin of localPlugins) {
+        if (plugin.name in recordPlugins) {
+          recordPlugins[plugin.name] = Object.assign(
+            recordPlugins[plugin.name],
+            plugin,
+          );
+        } else {
+          recordPlugins[plugin.name] = plugin;
+        }
+      }
+    }
+
+    // use lazy
         const lazyResult = (await args.dpp.extAction(
             args.denops,
             context,

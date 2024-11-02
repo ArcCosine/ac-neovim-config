@@ -1,3 +1,7 @@
+# denops shared server
+[[plugins]]
+repo = 'vim-denops/denops-shared-server.vim'
+
 # Vim-surround
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -76,16 +80,10 @@ hook_add = '''
 [[plugins]]
 repo = 'prettier/vim-prettier'
 build = 'yarn'
-on_ft = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown', 'lua']
+on_ft = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown']
 hook_source = '''
-  autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md,*.lua PrettierAsync
+  autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md PrettierAsync
 '''
-
-## [[plugins]]
-## repo = 'jose-elias-alvarez/null-ls.nvim'
-## 
-## [[plugins]]
-## repo = 'MunifTanjim/prettier.nvim'
 
 # pum
 
@@ -133,13 +131,24 @@ repo = 'shun/ddu-source-buffer'
 repo = 'Shougo/ddu-commands.vim'
 
 [[plugins]]
-repo='4513ECHO/ddu-source-colorscheme'
+repo = '4513ECHO/ddu-source-colorscheme'
 
 [[plugins]]
-repo='shun/ddu-source-rg'
+repo = 'shun/ddu-source-rg'
 
 [[plugins]]
-repo='uga-rosa/ddu-filter-converter_devicon'
+repo = 'uga-rosa/ddu-filter-converter_devicon'
+
+# command line position
+[[plugins]]
+repo = 'Shougo/cmdline.vim'
+hook_add = '''
+call cmdline#set_option('border', ['+', '-', '+', '|', '+', '-', '+', '|']->map('[v:val, "DduBorder"]'))
+call cmdline#set_option('col', 4)
+call cmdline#set_option('row', 0)
+call cmdline#set_option('width', &columns - 8 - 2)
+'''
+# autocmd vimrc WinResized * call cmdline#set_option('width', &columns - 8 - 2)
 
 # lsp
 [[plugins]]
