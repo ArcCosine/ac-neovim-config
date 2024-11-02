@@ -61,7 +61,10 @@ export class Config extends BaseConfig {
             "toml",
             "load",
             {
-                path: await fn.expand(args.denops, dotfilesDir + "/dein_lazy.toml"),
+                path: await fn.expand(
+                    args.denops,
+                    dotfilesDir + "/dein_lazy.toml"
+                ),
                 //path: `${dotfilesDir}/dein_lazy.toml`,
                 options: {
                     lazy: true,
@@ -97,36 +100,36 @@ export class Config extends BaseConfig {
         });
 
         // use local
- const localPlugins = await args.dpp.extAction(
-      args.denops,
-      context,
-      options,
-      "local",
-      "local",
-      {
-        directory: "~/work",
-        options: {
-          frozen: true,
-          merged: false,
-        },
-      },
-    ) as Plugin[] | undefined;
+        const localPlugins = (await args.dpp.extAction(
+            args.denops,
+            context,
+            options,
+            "local",
+            "local",
+            {
+                directory: "~/work",
+                options: {
+                    frozen: true,
+                    merged: false,
+                },
+            }
+        )) as Plugin[] | undefined;
 
-    if (localPlugins) {
-      // Merge localPlugins
-      for (const plugin of localPlugins) {
-        if (plugin.name in recordPlugins) {
-          recordPlugins[plugin.name] = Object.assign(
-            recordPlugins[plugin.name],
-            plugin,
-          );
-        } else {
-          recordPlugins[plugin.name] = plugin;
+        if (localPlugins) {
+            // Merge localPlugins
+            for (const plugin of localPlugins) {
+                if (plugin.name in recordPlugins) {
+                    recordPlugins[plugin.name] = Object.assign(
+                        recordPlugins[plugin.name],
+                        plugin
+                    );
+                } else {
+                    recordPlugins[plugin.name] = plugin;
+                }
+            }
         }
-      }
-    }
 
-    // use lazy
+        // use lazy
         const lazyResult = (await args.dpp.extAction(
             args.denops,
             context,
