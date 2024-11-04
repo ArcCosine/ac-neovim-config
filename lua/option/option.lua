@@ -1,19 +1,35 @@
--- file format
+local o = vim.opt
 
-vim.opt.fileformat = "unix"
-vim.opt.enc = "utf-8"
-vim.opt.fenc = "utf-8"
+-- file format
+o.fileformat = "unix"
+o.enc = "utf-8"
+o.fenc = "utf-8"
 
 -- view
-vim.opt.number = true
-vim.opt.signcolumn = "yes"
-vim.opt.laststatus = 2
-vim.opt.clipboard:append { "unnamed,unnamedplus" }
-vim.opt.mouse = "a"
-vim.opt.expandtab = true
-vim.opt.syntax = "on"
+o.number = true
+o.signcolumn = "yes"
+o.laststatus =3 
+o.clipboard:append { "unnamed,unnamedplus" }
+o.mouse = "a"
+o.expandtab = true
+o.syntax = "on"
+
+-- transparent
+o.termguicolors = true
+o.winblend = 0
+o.pumblend = 0
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]
 
 -- tabstop
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+o.tabstop = 4
+o.shiftwidth = 4
+
+-- search
+o.ignorecase = true
+o.smartcase = true
 

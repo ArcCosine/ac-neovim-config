@@ -3,4 +3,3 @@
 [[plugins]]
 on_ft = 'toml'
 repo = 'cespare/vim-toml'
-

@@ -3,7 +3,6 @@ vim.fn['ddu#custom#patch_global']({
   ui = 'ff',
   uiParams = {
     ff = {
-      filterSplitDirection = "floating",
       floatingBorder = "single",
       autoResize = false,
       previewFloating = true,
@@ -73,7 +72,7 @@ vim.api.nvim_create_autocmd("FileType", {
         ["<Space>"] = "toggleSelectItem",
         i = "openFilterWindow",
         P = "togglePreview"
-      }) do 
+      }) do
         vim.api.nvim_buf_set_keymap(0, "n", k,
           "<Cmd>call ddu#ui#do_action('" .. v .. "')<CR>",
           { noremap = true, silent = true, }
@@ -86,13 +85,14 @@ vim.api.nvim_create_autocmd("FileType", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "ddu-ff-filter",
   callback = function()
+    local option = { noremap = true, silent = true }
     -- インサートモードで Enter キーと Esc キーでウィンドウを閉じる
-    vim.api.nvim_buf_set_keymap(0, "i", "<CR>", "<Esc><Cmd>close<CR>", { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(0, "i", "<Esc>", "<Esc><Cmd>close<CR>", { noremap = true, silent = true })
+    vim.api.nvim_buf_set_keymap(0, "i", "<CR>", "<Esc><Cmd>close<CR>", option )
+    vim.api.nvim_buf_set_keymap(0, "i", "<Esc>", "<Esc><Cmd>close<CR>", option)
 
     -- ノーマルモードで Enter キーと Esc キーでウィンドウを閉じる
-    vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<Cmd>close<CR>", { noremap = true, silent = true })
-    vim.api.nvim_buf_set_keymap(0, "n", "<Esc>", "<Cmd>close<CR>", { noremap = true, silent = true })
+    vim.api.nvim_buf_set_keymap(0, "n", "<CR>", "<Cmd>close<CR>", option)
+    vim.api.nvim_buf_set_keymap(0, "n", "<Esc>", "<Cmd>close<CR>", option)
   end
 })
 
@@ -107,6 +107,6 @@ for k, v in pairs({
         [',uf'] = ':<C-u>Ddu file<CR>',
         [',up'] = ':<C-u>Ddu file_point<CR>',
         [',ul'] = ':<C-u>Ddu colorscheme<CR>',
-}) do 
+}) do
   vim.api.nvim_set_keymap('n', k, v, opts)
 end
