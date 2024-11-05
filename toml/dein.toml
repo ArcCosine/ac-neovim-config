@@ -79,12 +79,10 @@ hook_add = '''
 # prettier
 [[plugins]]
 repo = 'prettier/vim-prettier'
+build = 'yarn install'
 on_ft = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown']
 hook_source = '''
   autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md PrettierAsync
-'''
-hook_post_update = '''
-    let g:dein#plugin.build = 'yarn'
 '''
 
 

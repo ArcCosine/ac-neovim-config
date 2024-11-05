@@ -8,8 +8,8 @@ o.fenc = "utf-8"
 -- view
 o.number = true
 o.signcolumn = "yes"
-o.laststatus =3 
-o.clipboard:append { "unnamed,unnamedplus" }
+o.laststatus = 3
+o.clipboard:append({ "unnamed,unnamedplus" })
 o.mouse = "a"
 o.expandtab = true
 o.syntax = "on"

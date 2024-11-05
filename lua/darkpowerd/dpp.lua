@@ -31,7 +31,7 @@ local extension_urls = {
 
 -- Ensure each extension is installed and add to runtimepath
 for _, url in ipairs(extension_urls) do
-	local ext_path = cache_path .. string.gsub(url, ".git", "")
+	local ext_path = cache_path .. "/" .. string.gsub(url, ".git", "")
 	ensure_repo_exists(url, ext_path)
 	vim.opt.runtimepath:append(ext_path)
 end
