@@ -1,6 +1,6 @@
 -- vim.load enable.
-if vim.loader then 
-    vim.loader.enable()
+if vim.loader then
+	vim.loader.enable()
 end
 
 -- option

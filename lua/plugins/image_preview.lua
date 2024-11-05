@@ -1,8 +1,8 @@
-require('image_preview').setup({
-    mappings = {
-        PreviewImage = {
-                {"n"},
-                ",p"
-        }
-    }
+require("image_preview").setup({
+	mappings = {
+		PreviewImage = {
+			{ "n" },
+			",p",
+		},
+	},
 })

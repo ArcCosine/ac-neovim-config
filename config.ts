@@ -44,7 +44,6 @@ export class Config extends BaseConfig {
             "load",
             {
                 path: await fn.expand(args.denops, dotfilesDir + "/dein.toml"),
-                //path: `${dotfilesDir}/dein.toml`,
                 options: {
                     lazy: false,
                 },
@@ -65,7 +64,6 @@ export class Config extends BaseConfig {
                     args.denops,
                     dotfilesDir + "/dein_lazy.toml"
                 ),
-                //path: `${dotfilesDir}/dein_lazy.toml`,
                 options: {
                     lazy: true,
                 },
@@ -140,8 +138,6 @@ export class Config extends BaseConfig {
                 plugins: Object.values(recordPlugins),
             }
         )) as LazyMakeStateResult | undefined;
-
-        //console.log(lazyResult);
 
         return {
             ftplugins,

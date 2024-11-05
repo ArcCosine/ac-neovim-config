@@ -4,22 +4,22 @@
 vim.api.nvim_create_augroup("typescript", { clear = true })
 
 -- ファイルの読み込みや新規作成時のファイルタイプ設定
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-  group = "typescript",
-  pattern = "*.tsx",
-  callback = function()
-    vim.bo.filetype = "typescript"
-    vim.bo.syntax = "typescriptreact"
-  end
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	group = "typescript",
+	pattern = "*.tsx",
+	callback = function()
+		vim.bo.filetype = "typescript"
+		vim.bo.syntax = "typescriptreact"
+	end,
 })
 
-vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
-  group = "typescript",
-  pattern = "*.ts",
-  callback = function()
-    vim.bo.filetype = "typescript"
-    vim.bo.syntax = "javascript"
-  end
+vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
+	group = "typescript",
+	pattern = "*.ts",
+	callback = function()
+		vim.bo.filetype = "typescript"
+		vim.bo.syntax = "javascript"
+	end,
 })
 
 -- for buffer
@@ -38,4 +38,3 @@ vim.api.nvim_create_autocmd({"BufNewFile", "BufRead"}, {
 --   autocmd BufNewFile,BufRead *.ts   set filetype=typescript
 --   autocmd BufNewFile,BufRead *.ts   set syntax=javascript
 -- augroup END
-
