@@ -79,11 +79,14 @@ hook_add = '''
 # prettier
 [[plugins]]
 repo = 'prettier/vim-prettier'
-build = 'yarn'
 on_ft = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown']
 hook_source = '''
   autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md PrettierAsync
 '''
+hook_post_update = '''
+    let g:dein#plugin.build = 'yarn'
+'''
+
 
 # pum
 
@@ -142,6 +145,7 @@ repo = 'uga-rosa/ddu-filter-converter_devicon'
 # command line position
 [[plugins]]
 repo = 'Shougo/cmdline.vim'
+hooks_file = '~/.config/nvim/lua/option/cmd.lua'
 
 # lsp
 [[plugins]]
@@ -165,6 +169,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'NeoSahadeo/image_preview.nvim'
+hooks_file = '~/.config/nvim/lua/plugins/image_preview.lua'
 
 [[plugins]]
 repo = 'nvim-tree/nvim-web-devicons'
