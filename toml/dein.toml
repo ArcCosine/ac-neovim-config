@@ -76,15 +76,6 @@ hook_add = '''
     set noshowmode
 '''
 
-# prettier
-[[plugins]]
-repo = 'prettier/vim-prettier'
-build = 'yarn install'
-on_ft = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown']
-hook_source = '''
-  autocmd BufWritePre *.js,*.ts,*.vue,*.css,*.scss,*.json,*.md PrettierAsync
-'''
-
 
 # pum
 
@@ -174,3 +165,7 @@ repo = 'nvim-tree/nvim-web-devicons'
 
 [[plugins]]
 repo = 'nvim-tree/nvim-tree.lua'
+
+# fall.vim
+[[plugins]]
+repo = 'vim-fall/fall.vim'

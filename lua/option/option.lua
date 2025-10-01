@@ -16,8 +16,8 @@ o.syntax = "on"
 
 -- transparent
 o.termguicolors = true
--- o.winblend = 0
--- o.pumblend = 0
+o.winblend = 0
+o.pumblend = 0
 -- vim.cmd [[
 --   highlight Normal guibg=none
 --   highlight NonText guibg=none
