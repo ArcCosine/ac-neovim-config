@@ -169,3 +169,7 @@ repo = 'nvim-tree/nvim-tree.lua'
 # fall.vim
 [[plugins]]
 repo = 'vim-fall/fall.vim'
+
+# lazygit
+[[plugins]]
+repo = 'kdheepak/lazygit.nvim'

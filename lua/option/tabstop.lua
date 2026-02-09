@@ -21,20 +21,3 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
 		vim.bo.syntax = "javascript"
 	end,
 })
-
--- for buffer
--- au BufNewFile,BufRead * set tabstop=4 shiftwidth=4
--- au BufNewFile,BufRead *.rb set tabstop=2 shiftwidth=2
--- au BufNewFile,BufRead *.yml set tabstop=2 shiftwidth=2
--- au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4 filetype=javascript
--- au BufNewFile,BufRead *.css set tabstop=4 shiftwidth=2
--- au BufNewFile,BufRead *.html set tabstop=4 shiftwidth=2
--- au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=2
-
--- augroup typescript
---   au!
---   autocmd BufNewFile,BufRead *.tsx   set filetype=typescript
---   autocmd BufNewFile,BufRead *.tsx   set syntax=typescriptreact
---   autocmd BufNewFile,BufRead *.ts   set filetype=typescript
---   autocmd BufNewFile,BufRead *.ts   set syntax=javascript
--- augroup END
