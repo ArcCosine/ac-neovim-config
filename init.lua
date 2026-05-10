@@ -6,6 +6,7 @@ end
 -- option
 require("option/option")
 require("option/cd")
+require("option/lsp")
 
 -- dark powerd vim settings.
 require("darkpowerd/dpp")
@@ -16,7 +17,7 @@ require("keymap/keymap")
 require("keymap/yankround")
 
 -- plugins
-require("plugins/lspconfig")
+-- require("plugins/lspconfig")
 -- require("plugins/formatter")
-require("plugins/nvim-tree")
+-- require("plugins/nvim-tree")
 -- require("plugins/autocmd")

@@ -15,15 +15,15 @@ o.expandtab = true
 o.syntax = "on"
 
 -- transparent
-o.termguicolors = true
-o.winblend = 0
-o.pumblend = 0
--- vim.cmd [[
---   highlight Normal guibg=none
---   highlight NonText guibg=none
---   highlight Normal ctermbg=none
---   highlight NonText ctermbg=none
--- ]]
+-- o.termguicolors = true
+-- o.winblend = 0
+-- o.pumblend = 0
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+]]
 
 -- tabstop
 o.tabstop = 4
